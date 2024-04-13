@@ -1,0 +1,389 @@
+%!TEX program = xelatex
+\documentclass[cn,hazy,blue,14pt,normal]{elegantnote}
+\title{电磁学}
+
+\author{Jaden Feng\\冯杰骏}
+
+\date{}
+
+\usepackage{CJKfntef}
+\usepackage{array}
+\usepackage{physics}
+\usepackage{esint}
+\usepackage{amsmath}
+\numberwithin{equation}{section}
+\usepackage{amssymb}
+\usepackage{wrapfig}
+\usepackage{tikz}
+\usetikzlibrary{arrows, positioning, calc, angles, quotes}
+
+\begin{document}
+
+\maketitle
+\pagenumbering{roman}
+\setcounter{page}{1}
+\newpage
+\begin{center}
+    \Huge\textbf{{Introduction}}\\
+\end{center}~\
+电磁学笔记。
+\begin{flushright}
+    \begin{tabular}{c}
+        Jaden Feng\\
+        冯杰骏\\
+        \date{\today}
+    \end{tabular}
+\end{flushright}
+
+\newpage
+\pagenumbering{Roman}
+\setcounter{page}{1}
+\tableofcontents
+
+\newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\section{静电场的基本规律}
+\newpage
+\subsection{库仑定律}
+\begin{theorem}
+  库仑定律：
+\end{theorem}
+\begin{equation}
+  \vec{F}=\frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r^2}\vec{e_r}
+\end{equation}
+因为 $\vec{E}\equiv\frac{\vec{F}}{q}$ :
+\begin{equation}
+  \begin{aligned}
+    \vec{E}&=\frac{1}{4\pi\varepsilon_0}\frac{Q}{r^2}\vec{e_r}\\
+    &=\frac{1}{4\pi\varepsilon_0}\iiint\frac{\rho\ \dd V}{r^2}\vec{e_r}
+  \end{aligned}
+\end{equation}
+
+$Q$ 是场源电荷电荷量，$\rho$ 是电荷体密度， $\vec{e_r}$ 方向是源点 $\to $ 场点。\\
+\begin{example}\label{example1.1}
+  例题：求无限长带电直线中垂面上的电场分布。
+\end{example}
+
+\begin{wrapfigure}{r}{0.2\textwidth}
+  \begin{tikzpicture}
+    % 绘制无限长直线
+    \draw(0,-2) -- (0,2) node[above] {$\infty$};
+    \draw(0,2) -- (0,-2) node[below] {$\infty$};
+  
+    % 标记点 Q 和 q
+    \fill (0,0) circle (2pt) node[left] {$Q$};
+    \fill (2,0) circle (2pt) node[below right] {$q$};
+  
+    % 连接 Q 和 q，并标记距离 r
+    \draw[dashed] (0,0) -- (2,0) node [midway,above]{$r$};
+  \end{tikzpicture}
+\end{wrapfigure}
+\noindent
+Establish the y-axis along the direction of the line, and establish the x-axis perpendicular to the direction of the line.
+\\
+$$
+\text{d}\vec{E}=\frac{1}{4\pi\varepsilon_0}\frac{\lambda\dd l}{r^2}\vec{e_r}
+$$
+\\
+According to symmetry, the components of the upper and lower part on the y-axis cancel each other out. \\
+If the y-component is required, simply replace $\cos\alpha$ with $\sin\alpha$ in the following equation.
+\\
+$$
+\dd E_x=\frac{1}{4\pi\varepsilon_0}\frac{\lambda\dd l}{r^2}\cos \alpha
+=\frac{1}{4\pi\varepsilon_0}\frac{\lambda R\dd l}{(R^2+l^2)^{\frac{3}{2}}}
+$$
+\\
+Integral:
+\begin{align*}
+	E_x&=\int^{+\infty}_{-\infty}\frac{1}{4\pi\varepsilon_0}\frac{\lambda R}{(R^2+l^2)^{\frac{3}{2}}}\dd l\\
+	&=\frac{\lambda R}{4\pi\varepsilon_0}\int^{+\infty}_{-\infty}\frac{1}{(R^2+l^2)^{\frac{3}{2}}}\dd l
+\end{align*}
+
+\begin{wrapfigure}{r}{0.3\textwidth}
+  \begin{center}
+  \begin{tikzpicture}
+    % Put R and l into a right triangle, and let them be the adjacent side
+    \def\R{3}
+    \def\l{4}
+    % 绘制三角形
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (0,\R);
+    \coordinate (C) at (\l,0);
+    \draw (A) -- (B) node[midway, left] {$R$} -- (C)  -- cycle node[midway, below] {$l$};
+    % 标记斜边长度
+    \path (B) -- (C) node[midway, above, sloped] {$\sqrt{R^2 + l^2}$};
+    % 标记角度 theta
+    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = A--B--C};
+  \end{tikzpicture}
+  \end{center}
+\end{wrapfigure}
+\noindent
+We define the angle between the adjacent side whose length is R and the hypotenuse as $\theta$​
+\\
+Then we get:
+\begin{equation*}
+  \begin{split}
+    \cos\theta = \frac{R}{\sqrt{R^2+l^2}}\quad &\Longrightarrow\quad\frac{\cos^3\theta}{R^3}
+=\frac{1}{(R^2+l^2)^{\frac{3}{2}}}\\
+l=R\tan\theta\quad &\Longrightarrow\quad\dd l=\frac{R}{\cos^2\theta}\dd\theta
+  \end{split}
+\end{equation*}
+\\
+Then:
+\begin{align*}
+	E_x&=\frac{\lambda R}{4\pi\varepsilon_0}\int^{+\infty}_{-\infty}\frac{1}{(R^2+l^2)^{\frac{3}{2}}}\dd l
+  =\frac{\lambda R}{4\pi\varepsilon_0}\int^{+\frac{\pi}{2}}_{-\frac{\pi}{2}}\frac{\cos^3\theta}{R^3}\frac{R}{\cos^2\theta}\dd\theta\\
+	&=\frac{\lambda R}{4\pi\varepsilon_0}\int^{+\frac{\pi}{2}}_{-\frac{\pi}{2}}\frac{\cos\theta}{R^2}\dd\theta
+	=\frac{\lambda}{4\pi\varepsilon_0 R}\int^{+\frac{\pi}{2}}_{-\frac{\pi}{2}}\cos\theta\,\dd\theta\\
+	&=\frac{\lambda}{2\pi\varepsilon_0 R}
+\end{align*}
+
+\subsection{高斯定理}
+\begin{theorem}
+  高斯定理：
+\end{theorem}
+\begin{equation}
+  \Phi=\oiint_S\vec{E}\cdot\dd\vec{S}=\frac{q}{\varepsilon_0}
+\end{equation}
+\\
+高斯定理的简单用法这里不再赘述，事实上例题\ref{example1.1}用高斯定理做会方便许多，下面是一个稍微复杂的例题。\\
+\begin{example}
+  在以$O$为球心，电荷密度为$+\rho$的均匀带电球体内偏心挖去一以$O'$为球心的球，形成空腔，
+  两球心之间的距离为$a$，试求空腔内的电场。
+\end{example}
+
+\begin{wrapfigure}{r}{0.35\textwidth}
+  \includegraphics[width=0.35\textwidth]{image/example1.2.pdf}
+\end{wrapfigure}
+
+\noindent
+\textbf{填补法}，利用叠加原理\\
+设想在空腔内同时填满$+\rho$和$-\rho$的电荷，则原电荷分布可视为电荷密度为$+\rho$的实心大球
+和电荷密度为$-\rho$的实心小球的叠加。\\
+分别做以O和O'为圆心的圆的高斯面，利用高斯定理可以求出
+空腔内任意一点场强：
+$$
+\vec{E}_+=\frac{\rho}{3\varepsilon_0}\vec{r}\qquad\vec{E}_-=\frac{\rho}{3\varepsilon_0}\vec{r'}
+$$
+又因为$\vec{r}=\vec{r'}+\vec{a}$：
+$$
+\vec{E}=\vec{E}_+-\vec{E}_-=\frac{\rho}{3\varepsilon_0}(\vec{r}-\vec{r'})
+=\frac{\rho}{3\varepsilon_0}(\vec{r}-\vec{r}+\vec{a})=\frac{\rho}{3\varepsilon_0}\vec{a}
+$$
+综上：
+$$\vec{E}=\frac{\rho}{3\varepsilon_0}\vec{a}$$
+
+\subsection{电势与环路定理}
+\begin{theorem}
+    静电场的有势性
+\end{theorem}
+当点电荷$q$在任意静电场中运动时，电场力的功只取决于始末位置，而与路径无关。
+也就是说电场力是保守力。
+这称为电场力的有势性。
+\begin{wrapfigure}{r}{0.4\textwidth}
+    \includegraphics[width=0.4\textwidth]{image/T1_3.jpg}
+\end{wrapfigure}
+\begin{proof}
+
+    \begin{align*}
+        \dd W = \vec{F}\dot\dd\vec{l} =& \frac{qQ}{4\pi\varepsilon_0r^2}\vec{e_r}\dot\vec{\dd l}\\
+        =& \frac{qQ}{4\pi\varepsilon_0r^2}\dd l \cos \alpha \\
+        =& \frac{qQ}{4\pi\varepsilon_0r^2} \dd r
+    \end{align*}
+
+第一个等号是定义，第二个等号是库仑定律，第三，四个等号如图所示。
+于是$P_1$到$P_2$的功为：
+$$
+W = \int_{r_1}^{r_2}\frac{qQ}{4\pi\varepsilon_0r^2}\dd r = \frac{qQ}{4\pi\varepsilon_0}(\frac{1}{r_1}-\frac{1}{r_2})
+$$
+可以看出只与始末位置有关，与路径无关。
+\end{proof}
+
+\begin{theorem}
+    环路定理
+\end{theorem}
+静电场沿着任一闭合曲线的环流为零。\\
+即：
+\begin{equation}\label{环路定理}
+\oint\vec{E}\cdot\dd\vec{l}=0
+\end{equation}
+\begin{proof}
+    画一个闭合曲线，取两点$A$和$B$，因为静电力做功与路径无关，所以$W_{AB}$与$W_{BA}$互为相反数，
+    所以$W_{all}=W_{AB}+W_{BA}=0$,所以环流为零。
+\end{proof}
+\begin{definition}
+    电势
+\end{definition}
+在场内选一点$P_0$，规定$P_0$的电势为零，那么场内任一点$P$的电势$V$定义为：
+\begin{equation}\label{电势}
+V \equiv \frac{W}{q} = \frac 1q\int_{P}^{P_0}\vec{F}\vec{\dd l} = \int_{P}^{P_0}\vec{E}\cdot\dd\vec{l}
+\end{equation}
+\begin{definition}
+    电势差
+\end{definition}
+两点之间的电势差定义为：
+$$
+\Delta V = V_A - V_B = \int_{A}^{B}\vec{E}\cdot\dd\vec{l}
+$$
+
+下面介绍两种计算电势的方法：
+\begin{itemize}
+    \item 用点电荷电势的计算公式
+    \item 用电场的积分计算
+\end{itemize}
+下面一一介绍。\\
+先介绍第一种方法。
+\begin{theorem}
+    点电荷的电势计算公式
+\end{theorem}
+点电荷$q$在场中某点$P$的电势为：
+$$
+V =\int_{P}^{P_0}\vec{E}\cdot\dd\vec{l} = \frac{Q}{4\pi\varepsilon}\int_{r}^{\infty}\frac{\dd r}{r^2} = \frac{q}{4\pi\varepsilon_0r}
+$$
+写成积分形式：
+\begin{equation}\label{点电荷电势}
+V = \frac{1}{4\pi\varepsilon_0}\iiint\frac{\rho\dd V}{r} = \frac{1}{4\pi\varepsilon_0}\iint\frac{\sigma\dd S}{r}
+\end{equation}
+\begin{example}
+    计算均匀带电圆盘上的电势。已知圆盘半径$R$和电荷面密度$sigma$，参考点在无限远处。
+\end{example}
+因为是圆盘，所以想到用极坐标。极坐标中$\dd S = R\dd\varphi\dd r$，所以：
+$$
+\dd V = \frac{\sigma R\dd\varphi\dd r}{4\pi\varepsilon_0\sqrt{r^2+z^2}} 
+$$
+注意$r$是电荷元与极坐标原点的距离，$z$是电荷元与参考点的距离。\\
+积分可知：
+$$
+V = \iint \frac{\sigma R\dd\varphi\dd r}{4\pi\varepsilon_0\sqrt{r^2+z^2}} 
+= \frac{\sigma}{4\pi\epsilon_0}\int_{0}^{2\pi}\dd\varphi\int_{0}^{R}\frac{r\dd r}{\sqrt{r^2+z^2}} 
+= \frac{\sigma}{2\epsilon_0}(\sqrt{R^2+z^2}-z)
+$$
+下面介绍第二种。
+\begin{example}
+    求带电球内外电势，已知球体半径$R$和电荷密度$\sigma$。
+\end{example}
+由高斯定理得到电场分布：
+$$
+E=
+\left \{
+    \begin{array}{ll}
+        \frac{\sigma R^3}{4\pi\varepsilon_0r^2}\vec{e_r} &(r \geqslant R)\\
+        \frac{\sigma r}{3\varepsilon_0}\vec{e_r} &(r \leqslant R)\\
+    \end{array}
+\right .
+$$
+由公式(\ref{电势})可以知道：
+$$
+V = \int_{P}^{P_0}\vec{E}\cdot\dd\vec{l}
+$$
+所以：
+$$
+V=
+\left \{
+    \begin{array}{ll}
+        \frac{\sigma R^3}{3\varepsilon_0}\frac 1r & (r \geqslant R)\\
+        \frac{\sigma}{3\varepsilon}(R^2+R-r) & (r \leqslant R)\\
+    \end{array}
+\right .
+$$
+
+\begin{theorem}
+  电场与电势的关系
+\end{theorem}
+\begin{equation}
+  \vec{E}=-\nabla V
+\end{equation}
+
+\newpage
+\section{有导体时的静电场}
+\begin{itemize}
+	\item \textbf{带电导体}：总电荷不为零的导体
+	\item \textbf{中性导体}：总电荷为零的导体
+	\item \textbf{孤立导体}：与其他物体距离足够远的导体
+\end{itemize}
+\newpage
+\subsection{导体静电平衡}
+\begin{definition}
+  导体静电平衡
+\end{definition}
+当导体内自由电子不做宏观运动(也就是没有电流的)的时候，我们说导体处在静电平衡状态。\\
+静电平衡的必要条件是导体内部电场为零。因为如果有一点电场不为零，就会发生电荷的移动，改变电场分布，直到总电场为零。\\
+这可以推出以下的性质：(当导体处于静电平衡时)
+\begin{itemize}
+	\item \textbf{导体内部是等势体。}\\
+	这是因为导体内部电场为零，所以无论怎么移动，电场力不会做功，电势不会改变。
+	\item \textbf{导体内部电荷体密度为零，电荷只分布在表面上。}\\
+	在导体里选一个点，围绕这个点做一个小小的高斯面，由于电场强度是零，根据高斯定理可以知道$q_{\text{内}}=0$，所以电荷体密度为零。
+	\item \textbf{在导体外部，\CJKunderdot{紧靠}导体表面的地方，电场垂直于导体表面。}
+
+\begin{minipage}{0.5\textwidth}
+	更准确的：
+	\begin{equation}\label{导体表面电场}
+		\vec{E}=\frac{\sigma}{\varepsilon_0}\vec{e_n}
+	\end{equation}
+	如图所示建立高斯面，再由高斯定理可以得到。
+	$$
+		S\vec{E} = \frac{\sigma S}{\varepsilon_0}
+	$$
+	消去$S$就可以得到了。
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		\includegraphics[width=\textwidth]{image/2.1.1.png}
+	\end{minipage}
+	\begin{note}
+		这个式子看起来表示导体表面附近的电场强度只受导体表面的电荷影响，但实际上电场强度是由全空间的电荷影响的。
+		这看似有些矛盾，导体外电荷的影响体现在哪里呢？\\
+		它们可以通过改变导体表面的电荷分布来改变电场。\\
+		想象一个孤立导体球，电荷面密度为$\sigma$,在它旁边放一个点电荷，那么电荷面密度就变成了$\sigma '$,这两个情况的电场强度是不同的。
+	\end{note}
+\end{itemize}
+
+\subsection{带电导体所受静电力}
+由公式(\ref{导体表面电场})可以知道,\textbf{紧靠}导体外一点$P'$：
+$$
+\vec{E}(P') = \frac{\sigma}{\varepsilon_0}\vec{e_n} = \vec{E}_{\Delta S}(P')+\vec{E}_{\text{other}}(P')
+$$
+其中$\vec{E}_{\Delta S}(P')$是高斯面内电荷产生的电场强度，$\vec{E}_{\text{other}}(P')$是除了高斯面内电荷的其他电荷产生的电场强度。\\
+对于$P'$而言，$\Delta S$可以视为一个无限大带电平面，所以$\vec{E}_{\Delta S}(P') = \frac{\sigma}{2\varepsilon_0}\vec{e_n}$，
+于是$\vec{E}_{\text{other}}(P') = \frac{\sigma}{\varepsilon_0}\vec{e_n}$(因为这俩加起来是$\frac{\sigma}{\varepsilon_0}\vec{e_n}$)\\
+又因为电场在法向方向上连续，所以对于在导体上的$P$点：
+$$
+\vec{E}_{\text{other}}(P') = \frac{\sigma}{\varepsilon_0}\vec{e_n}
+$$
+根据$\vec{F} = q\vec{E} = \oint_S \sigma \vec{E} \dd S$ 就能得到导体受力了。
+\begin{note}
+	这实际上是导体受到外部电荷的力，所以这个结果和之前的(\ref{导体表面电场})看似有些冲突。
+	(\ref{导体表面电场})是说的导体外部一点，而这里得到的是导体表面上，实际上就是导体内的一点。想明白这一点就不冲突了。
+\end{note}
+
+\subsection{平行板导体组}
+\begin{tikzpicture}
+  %通过“shift”简化了操作
+  %画矩形
+  \draw (0,0) rectangle (1,10) ;
+  \draw[shift ={(3 ,0)}] (0,0) rectangle (1,10);
+  \draw[shift ={(6.5 ,0)}] (0,0) rectangle (1,10);
+  
+  %标记平行板
+  \node at (0.5,0) [below] {A};
+  \node[shift = {(3,0)}] at (0.5,0) [below] {C};
+  \node[shift = {(6.5,0)}] at (0.5,0) [below] {B};
+  
+  %标记界面
+  \node at (0,10) [above, left] {$\sigma_1$};
+  \node[shift = {(3,0)}] at (0,10) [above, left] {$\sigma_3$};
+  \node[shift = {(6.5,0)}] at (0,10) [above, left] {$\sigma_5$};
+
+  \node at (1,10) [above, right] {$\sigma_2$};
+  \node[shift = {(3,0)}] at (1,10) [above, right] {$\sigma_4$};
+  \node[shift = {(6.5,0)}] at (1,10) [above, right] {$\sigma_6$};
+
+  %填充黑点
+  \fill (0.5,5) circle(2pt);
+  \fill [shift = {(3,0)}] (0.5,5) circle(2pt);
+  \fill [shift = {(6.5,0)}] (0.5,5) circle(2pt);
+\end{tikzpicture}
+\end{document}
+
