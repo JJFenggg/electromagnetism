@@ -5,3 +5,5 @@
 \contentsline {section}{\numberline {2}有导体时的静电场}{7}{section.2}%
 \contentsline {subsection}{\numberline {2.1}导体静电平衡}{8}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}带电导体所受静电力}{9}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}平行板导体组}{9}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}电容器及其电容}{10}{subsection.2.4}%

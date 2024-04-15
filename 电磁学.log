@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.5)  3 APR 2024 20:35
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.5)  16 APR 2024 00:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1261,24 +1261,32 @@ Overfull \hbox (27.40001pt too wide) in paragraph at lines 321--335
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 354--356
+File: image/平行板导体组.jpg Graphic file (type bmp)
+<image/平行板导体组.jpg>
+ [9]
+Missing character: There is no ， ("FF0C) in font cmr12!
+
+Underfull \hbox (badness 10000) in paragraph at lines 404--406
 
  []
 
-[9] (./电磁学.aux)
+[10]
+File: image/电容器组合.jpg Graphic file (type bmp)
+<image/电容器组合.jpg>
+ [11] (./电磁学.aux)
 Package rerunfilecheck Info: File `电磁学.out' has not changed.
-(rerunfilecheck)             Checksum: 4F9A359DDA0011CA53CA52182D0BFC98;739.
+(rerunfilecheck)             Checksum: CA580231C885185418B159A5D06233AD;957.
 Package logreq Info: Writing requests to '电磁学.run.xml'.
 \openout1 = `电磁学.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40211 strings out of 476683
- 841750 string characters out of 5807576
+ 40239 strings out of 476683
+ 842808 string characters out of 5807576
  1863012 words of memory out of 5000000
- 59776 multiletter control sequences out of 15000+600000
+ 59802 multiletter control sequences out of 15000+600000
  520262 words of font info for 112 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,17n,107p,672b,963s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 电磁学.pdf (12 pages).
+Output written on 电磁学.pdf (14 pages).

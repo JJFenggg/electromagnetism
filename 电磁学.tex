@@ -359,31 +359,80 @@ $$
 \end{note}
 
 \subsection{平行板导体组}
-\begin{tikzpicture}
-  %通过“shift”简化了操作
-  %画矩形
-  \draw (0,0) rectangle (1,10) ;
-  \draw[shift ={(3 ,0)}] (0,0) rectangle (1,10);
-  \draw[shift ={(6.5 ,0)}] (0,0) rectangle (1,10);
-  
-  %标记平行板
-  \node at (0.5,0) [below] {A};
-  \node[shift = {(3,0)}] at (0.5,0) [below] {C};
-  \node[shift = {(6.5,0)}] at (0.5,0) [below] {B};
-  
-  %标记界面
-  \node at (0,10) [above, left] {$\sigma_1$};
-  \node[shift = {(3,0)}] at (0,10) [above, left] {$\sigma_3$};
-  \node[shift = {(6.5,0)}] at (0,10) [above, left] {$\sigma_5$};
+这种题的步骤是根据静电平衡和导体带电量列出方程，然后再解方程就好了。
+一般是带电量列一组，然后导体内找点再列一组，然后解方程。
+\begin{example}
+	A,B板带电分别是$q_a$,$q_b$，C不带电，求六个壁的电荷面密度。
+\end{example}
+\begin{wrapfigure}[6]{r}{0.3\textwidth}
+		\includegraphics[width=0.3\textwidth ]{image/平行板导体组.jpg}
+\end{wrapfigure}
+由电荷量可以列出三个方程：
+\begin{gather*}
+	\sigma_1+\sigma_2 = \frac{q_a}{S}\\
+	\sigma_3+\sigma_4 = 0\\
+	\sigma_5+\sigma_6 = \frac{q_b}{S}
+\end{gather*}
+每个板内取一点，因为是导体，所以板内电场为零，也就是每个点的电场是零。又因为无限大带电平板产生的电场是$\frac{\sigma}{2\varepsilon_0}$，每个电的电场都是六个带电板叠加产生的，所以：
+\begin{gather*}
+	\sigma_1 - \sigma_2 - \sigma_3 - \sigma_4 - \sigma_5 - \sigma_6 = 0\\
+	\sigma_1 + \sigma_2 + \sigma_3 - \sigma_4 - \sigma_5 - \sigma_6 = 0\\
+	\sigma_1 + \sigma_2 + \sigma_3 + \sigma_4 + \sigma_5 + \sigma_6 = 0
+\end{gather*}
+解这六个方程就可以得出答案了。\textbf{提示：}把下面这三个式子加加减减就能得出$\sigma_1 = \sigma_6$，这是突破点。\\
+答案是：
+$$
+\sigma_1 = \sigma_6 = \frac{q_a+q_b}{2S}，\qquad \sigma_2 = -\sigma_3 = \sigma_4 = -\sigma_5 = \frac{q_a-q_b}{2S}
+$$
 
-  \node at (1,10) [above, right] {$\sigma_2$};
-  \node[shift = {(3,0)}] at (1,10) [above, right] {$\sigma_4$};
-  \node[shift = {(6.5,0)}] at (1,10) [above, right] {$\sigma_6$};
+\subsection{电容器及其电容}
+\begin{definition}
+	电容
+\end{definition}
+\begin{equation}
+C \equiv \frac{Q}{U}
+\end{equation}
 
-  %填充黑点
-  \fill (0.5,5) circle(2pt);
-  \fill [shift = {(3,0)}] (0.5,5) circle(2pt);
-  \fill [shift = {(6.5,0)}] (0.5,5) circle(2pt);
-\end{tikzpicture}
+几种常见的电容器的电容：
+\begin{align}
+	&\text{平行板电容器}\qquad
+	C = \frac{\varepsilon_0S}{d}\\
+	&\text{球形电容器}\qquad
+	C = 4\pi\varepsilon_0\frac{R_1R_2}{R_2-R_1}\\
+	&\text{圆柱形电容器}\qquad
+	C = 2\pi\varepsilon_0\frac{L}{\ln\frac{R_2}{R_1}}
+\end{align}
+实际上都可以用平行板电容器的结果来算。\\
+\begin{theorem}
+	电容器连接的计算公式
+\end{theorem}
+\begin{itemize}
+	\item \textbf{串联}：\begin{equation}\frac{1}{C}=\sum_{1}^{n}\frac{1}{C_n}\end{equation}
+	\item \textbf{并联}：\begin{equation}C=\sum_{1}^{n}C_n\end{equation}
+\end{itemize}
+下面举一个例题看看，当时有一些没考虑到的问题。
+\begin{example}
+	求这个电容器组合的电容
+\end{example}
+
+\begin{wrapfigure}[6]{r}{0.5\textwidth}
+	\includegraphics[width=0.5\textwidth]{image/电容器组合.jpg}
+\end{wrapfigure}
+分析一下就能知道C，D 两点电势相等，所以中间那个电容实际上没有，就变成了简单的串并联问题。\\
+答案是$4\mu F$。
+\begin{theorem}
+	电容器的能量
+\end{theorem}
+\begin{equation}
+	W = \frac{1}{2}CU^2 = \frac{Q^2}{2C} = \frac{QU}{2}
+\end{equation}
+
+\newpage
+\section{静电场中的电介质}
+电介质要和导体区分一下，电介质不是导体，内部没有自由电荷，没有静电平衡。\\
+它的电荷是经过极化才有的，是极化电荷。
+\newpage
+\subsection{偶极子}
+
 \end{document}
 
