@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.5)  16 APR 2024 17:43
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.5)  16 APR 2024 23:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1207,41 +1207,41 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 (Font)              scaled to size 17.28pt on input line 49.
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
+Underfull \hbox (badness 10000) in paragraph at lines 62--64
 
  []
 
 
-Overfull \hbox (3.84668pt too wide) in paragraph at lines 81--82
+Overfull \hbox (3.84668pt too wide) in paragraph at lines 80--81
 [][] 
  []
 
 
-Underfull \hbox (badness 1242) in paragraph at lines 83--86
+Underfull \hbox (badness 1242) in paragraph at lines 82--85
 []\TU/texgyretermes(0)/m/n/14.4 Establish the y-axis along the direction of the line, and
  []
 
 
-Underfull \hbox (badness 1043) in paragraph at lines 83--86
+Underfull \hbox (badness 1043) in paragraph at lines 82--85
 \TU/texgyretermes(0)/m/n/14.4 establish the x-axis perpendicular to the direction of the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--86
+Underfull \hbox (badness 10000) in paragraph at lines 82--85
 
  []
 
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 87.
+(Font)              scaled to size 7.0pt on input line 86.
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--93
+Underfull \hbox (badness 10000) in paragraph at lines 87--92
 
  []
 
 [2]
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
 
-Underfull \hbox (badness 10000) in paragraph at lines 149--152
+Underfull \hbox (badness 10000) in paragraph at lines 148--151
 
  []
 
@@ -1251,12 +1251,12 @@ File: image/example1.2.pdf Graphic file (type pdf)
 File: image/T1_3.jpg Graphic file (type bmp)
 <image/T1_3.jpg>
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/it' will be
-(Font)              scaled to size 14.4pt on input line 189.
+(Font)              scaled to size 14.4pt on input line 188.
  [4] [5] [6] [7]
 File: image/2.1.1.png Graphic file (type bmp)
 <image/2.1.1.png>
 
-Overfull \hbox (27.40001pt too wide) in paragraph at lines 321--335
+Overfull \hbox (27.40001pt too wide) in paragraph at lines 319--333
 []$[]$ $[]$ 
  []
 
@@ -1266,7 +1266,7 @@ File: image/平行板导体组.jpg Graphic file (type bmp)
  [9]
 Missing character: There is no ， ("FF0C) in font cmr12!
 
-Underfull \hbox (badness 10000) in paragraph at lines 404--406
+Underfull \hbox (badness 10000) in paragraph at lines 402--404
 
  []
 
@@ -1276,20 +1276,39 @@ File: image/电容器组合.jpg Graphic file (type bmp)
  [11] [12]
 File: image/偶极子.jpg Graphic file (type bmp)
 <image/偶极子.jpg>
- [13] (./电磁学.aux)
+File: image/偶极子电场.png Graphic file (type bmp)
+<image/偶极子电场.png>
+
+Underfull \hbox (badness 5711) in paragraph at lines 455--458
+[]\TU/SimSun(0)/m/n/14.4 如 图 所 示 这 是 一 个 偶 极 子，|  下 面 求 它 在 $\OML/cmm/m/it/14.4 P$ \TU/SimSun(0)/m/n/14.4 点 产 生 的 电 场。|
+ []
+
+Missing character: There is no ， ("FF0C) in font cmr12!
+[13] [14]
+File: image/极化电荷.jpg Graphic file (type bmp)
+<image/极化电荷.jpg>
+File: image/极化电荷面密度.png Graphic file (type bmp)
+<image/极化电荷面密度.png>
+ [15]
+File: image/极化电荷例题.png Graphic file (type bmp)
+<image/极化电荷例题.png>
+ [16] [17]
+File: image/电介质高斯定理例题.png Graphic file (type bmp)
+<image/电介质高斯定理例题.png>
+ [18] (./电磁学.aux)
 Package rerunfilecheck Info: File `电磁学.out' has not changed.
-(rerunfilecheck)             Checksum: E4170A8C614DCAC5DB7CA0FF6D7F0D56;1147.
+(rerunfilecheck)             Checksum: CF960DADDAC4B9A733125F29E5613C80;1481.
 Package logreq Info: Writing requests to '电磁学.run.xml'.
 \openout1 = `电磁学.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40248 strings out of 476683
- 842952 string characters out of 5807576
+ 40345 strings out of 476683
+ 846794 string characters out of 5807576
  1863012 words of memory out of 5000000
- 59810 multiletter control sequences out of 15000+600000
+ 59902 multiletter control sequences out of 15000+600000
  520262 words of font info for 112 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,17n,107p,672b,963s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 电磁学.pdf (16 pages).
+Output written on 电磁学.pdf (21 pages).

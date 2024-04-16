@@ -9,3 +9,6 @@
 \contentsline {subsection}{\numberline {2.4}电容器及其电容}{10}{subsection.2.4}%
 \contentsline {section}{\numberline {3}静电场中的电介质}{12}{section.3}%
 \contentsline {subsection}{\numberline {3.1}偶极子}{13}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}电介质的极化}{14}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}极化电荷}{14}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}有电介质时的高斯定理}{16}{subsection.3.4}%

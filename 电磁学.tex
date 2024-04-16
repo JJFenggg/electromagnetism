@@ -54,13 +54,12 @@
   \vec{F}=\frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r^2}\vec{e_r}
 \end{equation}
 因为 $\vec{E}\equiv\frac{\vec{F}}{q}$ :
-\begin{equation}
+\begin{equation}\label{点电荷电场}
   \begin{aligned}
     \vec{E}&=\frac{1}{4\pi\varepsilon_0}\frac{Q}{r^2}\vec{e_r}\\
     &=\frac{1}{4\pi\varepsilon_0}\iiint\frac{\rho\ \dd V}{r^2}\vec{e_r}
   \end{aligned}
 \end{equation}
-
 $Q$ 是场源电荷电荷量，$\rho$ 是电荷体密度， $\vec{e_r}$ 方向是源点 $\to $ 场点。\\
 \begin{example}\label{example1.1}
   例题：求无限长带电直线中垂面上的电场分布。
@@ -182,7 +181,7 @@ $$\vec{E}=\frac{\rho}{3\varepsilon_0}\vec{a}$$
 当点电荷$q$在任意静电场中运动时，电场力的功只取决于始末位置，而与路径无关。
 也就是说电场力是保守力。
 这称为电场力的有势性。
-\begin{wrapfigure}{r}{0.4\textwidth}
+\begin{wrapfigure}[4]{r}{0.4\textwidth}
     \includegraphics[width=0.4\textwidth]{image/T1_3.jpg}
 \end{wrapfigure}
 \begin{proof}
@@ -224,10 +223,9 @@ V \equiv \frac{W}{q} = \frac 1q\int_{P}^{P_0}\vec{F}\vec{\dd l} = \int_{P}^{P_0}
     电势差
 \end{definition}
 两点之间的电势差定义为：
-$$
-\Delta V = V_A - V_B = \int_{A}^{B}\vec{E}\cdot\dd\vec{l}
-$$
-
+\begin{equation}
+	\Delta V = V_A - V_B = \int_{A}^{B}\vec{E}\cdot\dd\vec{l}
+\end{equation}
 下面介绍两种计算电势的方法：
 \begin{itemize}
     \item 用点电荷电势的计算公式
@@ -239,9 +237,9 @@ $$
     点电荷的电势计算公式
 \end{theorem}
 点电荷$q$在场中某点$P$的电势为：
-$$
+\begin{equation}
 V =\int_{P}^{P_0}\vec{E}\cdot\dd\vec{l} = \frac{Q}{4\pi\varepsilon}\int_{r}^{\infty}\frac{\dd r}{r^2} = \frac{q}{4\pi\varepsilon_0r}
-$$
+\end{equation}
 写成积分形式：
 \begin{equation}\label{点电荷电势}
 V = \frac{1}{4\pi\varepsilon_0}\iiint\frac{\rho\dd V}{r} = \frac{1}{4\pi\varepsilon_0}\iint\frac{\sigma\dd S}{r}
@@ -292,7 +290,7 @@ $$
 \begin{theorem}
   电场与电势的关系
 \end{theorem}
-\begin{equation}
+\begin{equation}\label{电场与电势关系}
   \vec{E}=-\nabla V
 \end{equation}
 
@@ -454,7 +452,215 @@ $$\vec{M}=2\vec{F}\times\frac{\vec{l}}{2}=q\vec{l}\times\vec{E}=\vec{p}\times\ve
 \begin{theorem}
 	偶极子激发的静电场
 \end{theorem}
+如图所示这是一个偶极子，下面求它在$P$点产生的电场。
+\begin{wrapfigure}[12]{r}{0.3\textwidth}
+	\includegraphics[scale=0.5]{image/偶极子电场.png}
+\end{wrapfigure}
+由点电荷电势公式(\ref{点电荷电势})可以知道：
+$$V = \frac{1}{4\pi\varepsilon_0}\left(\frac{q}{r_+}-\frac{q }{r_-}\right)$$
+当$r \gg l$时，可以知道$$r_+ \approx r - \frac l2 \cos\theta，\qquad r_- \approx r + \frac l2\cos\theta$$
+所以：
+$$
+V=\frac{q}{4 \pi \varepsilon_{0}} \frac{r_{-}-r_{+}}{r_{+} r_{-}} \approx \frac{q}{4 \pi \varepsilon_{0}} \frac{l \cos \theta}{r^{2}}=\frac{\vec{p} \cdot \vec{r}}{4 \pi \varepsilon_{0} r^{3}}
+$$
+由电势与电场的关系(\ref{电场与电势关系})可以知道：
+$$\vec{E}=-\nabla V$$
+我们利用极坐标下的$\nabla$算符：(这是因为偶极子的电场是轴对称的，用球坐标很好做。)
+$$
+\frac{\partial}{\partial r}\vec{e_r}+
+\frac 1r \frac{\partial}{\partial \theta}\vec{e_\theta}+
+\frac{1}{r\sin\theta}\frac{\partial}{\partial\varphi}\vec{e_\varphi}
+$$
+代入可以得到：
+$$
+\vec{E}(\vec{r},\theta)=
+\frac{p}{4 \pi \varepsilon_0 r^3}
+\left(2\cos\theta\vec{e_r}+\sin\theta\vec{e_\theta}\right)
+$$
+\subsection{电介质的极化}
+\begin{itemize}
+	\item \textbf{位移极化：}正反电荷“重心”在外电场的作用下发生位移，形成极化电荷(偶极子)。
+	\item \textbf{取向极化：}在外电场的作用下，有极分子的电偶极矩的方向改变(趋向外电场的方向)。
+\end{itemize}
+需要注意的是：极化电荷产生的电场与原来的电场是相反方向的(电偶极矩的方向和偶极子产生的电场线的方向相反)。
+\begin{definition}
+	极化强度
+\end{definition}
+\begin{equation}\label{极化强度定义}
+	\vec{P} \equiv \frac{\sum \vec{p_i}}{\Delta V}
+\end{equation}
+\begin{theorem}
+	极化强度和电场强度的关系
+\end{theorem}
+对于\textbf{各向同性电介质}，有：
+\begin{equation}
+	\vec{P} = \varepsilon_0\chi\vec{E}
+\end{equation}
+这是实验得出来的。$\chi$是电介质的电极化率。
+\subsection{极化电荷}
+\begin{definition}
+	极化电荷
+\end{definition}
+极化电荷是由于极化而产生的宏观电荷
+如图所示这是一个介质的界面，可以看出来，只有被界面穿过的偶极子才对表面的极化电荷有贡献。
+\begin{itemize}
+	\item 在内部的没有穿过的：所有的这些偶极子的电荷代数和为零
+	\item 在外部的没有穿过的：压根和这个电介质没关系(有点绝对了，但是确实和表面电荷分布没关系)
+\end{itemize}
 
-由
+\begin{wrapfigure}[6]{r}{0.3\textwidth}
+	\includegraphics[width=0.3\textwidth]{image/极化电荷.jpg}
+\end{wrapfigure}
+下面来求一下极化电荷的量和密度。\\
+虚线画出的这个体元里面，单位体积内偶极子数(偶极子数密度)为$n$，体积是$l\left |\cos \theta\right |\dd S$，所以：
+$$ \dd q_p = -qnl\cos \theta \dd S $$
+负号的原因是：
+\begin{itemize}
+	\item $\cos \theta > 0 $: 也就是如图所示的情况，对极化电荷有贡献的是负电荷，所以$q$前面加个负号，代表负电荷。
+	\item $\cos \theta < 0 $: 把图中的正负电荷调转的情况，这个情况下，要算出体积，求的是$\left | \cos \theta \right |$，所以也要加个负号。
+\end{itemize}
+这个式子里面$nql$就是极化强度$\vec{P}$的大小，又看到这个$\cos \theta$，很自然地改写成：
+$$ \dd q_p = -\vec{P}\cdot \dd \vec{S}$$
+积分之后就得到\textbf{极化电荷总量}：
+\begin{equation}\label{极化电荷总量}
+	q_p = -\oiint_S \vec{P}\cdot \dd \vec{S}
+\end{equation}
+两边同时除以$\Delta V$，将$\Delta V$缩为物理无限小，就得到了\textbf{极化电荷体密度}：
+\begin{equation}\label{极化电荷体密度}
+	\rho_p = -\frac{\oiint_S \vec{P}\cdot \dd \vec{S}}{\Delta V} = -\nabla \cdot \vec{P}
+\end{equation}
+\begin{wrapfigure}[8]{r}{0.3\textwidth}
+	\includegraphics[width=0.3\textwidth]{image/极化电荷面密度.png}
+\end{wrapfigure}
+由极化电荷总量公式(\ref{极化电荷总量})可以得到：
+$$
+q_p = -\oiint_S \vec{P}\cdot \dd \vec{S} = -(\Delta S \vec{P_1}\cdot \vec{e_{n1}} + \Delta S \vec{P_2}\cdot \vec{e_{n2}})
+$$
+因为$\vec{e_{n1}} = -\vec{e_{n2}}$，命$\vec{e_n} = \vec{e_{n1}}$，所以：
+$$
+q_p = \Delta S \vec{P_2}\cdot \vec{e_{n}} - \Delta S \vec{P_1}\cdot \vec{e_{n}} = \Delta S (\vec{P_2}-\vec{P_1})\cdot \vec{e_{n}}
+$$
+又因为$q_p = \sigma_p \Delta S $，所以\textbf{极化电荷面密度}： 
+\begin{equation}\label{极化电荷面密度}
+	\sigma_p = (\vec{P_2}-\vec{P_1})\cdot \vec{e_{n}}
+\end{equation}
+
+\begin{example}
+	均匀极化的电介质球，半径为$R$，极化强度$\vec{P}$；
+	求 (1) 表面上极化电荷分布；
+	(2) 极化电荷在球心处产生的电场.
+\end{example}
+
+\begin{wrapfigure}[8]{r}{0.3\textwidth}
+	\includegraphics[width=0.3\textwidth]{image/极化电荷例题.png}
+\end{wrapfigure}
+(1) 由极化电荷面密度公式(\ref{极化电荷面密度})可以得到：
+$$ \sigma_p = (\vec{P_2}-\vec{P_1})\cdot \vec{e_{n}} = P\cos\theta $$
+(2) 由点电荷电场公式(\ref{点电荷电场})可以得到：
+$$ \vec{E} = \frac{1}{4\pi\varepsilon_0}\frac{\oiint_S \sigma_p \dd S}{R^2}\vec{e_r} $$
+由于是球体具有对称性，所以垂直于$z$轴方向的量相互抵消，只有$z$方向的电场强度：
+\begin{align*}
+	E_z &= \frac{1}{4\pi\varepsilon_0}\frac{P}{R^2}\oiint_S R^2 \cos^2 \theta \sin \theta \dd \theta \dd \varphi
+		= \frac{P}{4 \pi \varepsilon_0}\int_{0}^{\pi} \cos^2 \theta \sin \theta \dd \theta \int_{0}^{2\pi} \dd \varphi\\
+		&= \frac{P}{2 \varepsilon_0}\int_{0}^{\pi} \cos^2 \theta \sin \theta \dd \theta 
+		= \frac{P}{2 \varepsilon_0}\int_{0}^{\pi} - \cos^2 \theta \dd \cos \theta \\
+		&= \frac{P}{2 \varepsilon_0}\left.\left(-\frac{1}{3}\cos^3 \theta\right)\right|_{0}^{\pi}
+		= \frac{P}{2 \varepsilon_0}\left(-\frac 13 (-1)^3 - (- \frac 13 (1)^3)\right)
+		= \frac{P}{2 \varepsilon_0} \times \frac 23\\
+		&= \frac{P}{3 \varepsilon_0}
+\end{align*}
+
+\subsection{有电介质时的高斯定理}
+\begin{definition}
+	电位移矢量
+\end{definition}
+\begin{equation}\label{电位移矢量}
+	\vec{D} \equiv \varepsilon_0\vec{E}+\vec{P}
+\end{equation}
+下面说明一下电位移矢量是怎么来的。\\
+当空间里有电介质的时候，要把极化电荷和自由电荷同时考虑进来，那么高斯定理就变成了：
+$$
+\oiint_S \vec{E} \cdot \dd \vec{S} = \frac{q_f+q_p}{\varepsilon_0}
+$$
+把电势$\varepsilon_0$移过去，再把$q_p = - \oiint_S \vec{P}\cdot \dd \vec{S}$代入。
+$$
+\oiint_S \varepsilon_0 \vec{E} \cdot \dd \vec{S} = q_f - \oiint_S \vec{P}\cdot \dd \vec{S}
+$$
+把带$\vec{P}$的项移到左边：
+$$
+\oiint_S \left( \varepsilon_0 \vec{E} + \vec{P} \right)\cdot \dd \vec{S} = q_f
+$$
+很自然的想要把括号里的这一串变成一个东西。\\
+也就是电位移矢量$\vec{D} \equiv \varepsilon_0\vec{E}+\vec{P}$\\
+所以：
+\begin{theorem}
+	有电介质时的高斯定理
+\end{theorem}
+\begin{equation}\label{介质高斯定理}
+	\oiint_S \vec{D} \cdot \dd \vec{S} = q_f
+\end{equation}
+
+下面再说一下微分形式：
+\begin{align*}
+	&\nabla \cdot \vec{E} = \frac{\rho_f + \rho_p}{\varepsilon_0} \\
+	\Rightarrow \qquad
+	&\nabla \cdot \varepsilon_0 \vec{E} = \rho_f - \nabla \cdot \vec{P}\\
+	\Rightarrow \qquad
+	&\nabla \cdot \left(\varepsilon_0\vec{E}+\vec{P}\right) = \rho_f\\
+	\Rightarrow \qquad
+	&\nabla \cdot \vec{D} = \rho_f
+\end{align*}
+把$\vec{P} = \varepsilon_0\chi\vec{E}$代入$\vec{D} \equiv \varepsilon_0\vec{E}+\vec{P}$，就可以得到：
+$$
+\vec{D} = \varepsilon_0 \left(1 + \chi \right) \vec{E}
+$$
+\begin{definition}
+	介电常量和相对介电常量
+\end{definition}
+介电常量：
+\begin{equation}\label{介电常量}
+	\varepsilon \equiv \varepsilon_0\left(1 + \chi \right) 
+\end{equation}
+相对介电常量：
+\begin{equation}
+	 \varepsilon_r \equiv \frac{\varepsilon}{\varepsilon_0} = 1 + \chi
+\end{equation}
+把(\ref{介电常量})代入$\vec{D} = \varepsilon_0 \left(1 + \chi \right) \vec{E}$：
+\begin{equation}
+	\vec{D} = \varepsilon \vec{E} = \varepsilon_0 \varepsilon_r \vec{E}
+\end{equation}
+\begin{note}
+	解决电介质问题的步骤：
+\end{note}
+\begin{itemize}
+	\item 通过高斯定理求出$\vec{D}$
+	\item 通过$\vec{D} = \varepsilon \vec{E} = \varepsilon_0 \varepsilon_r \vec{E}$求出$\vec{E}$
+	\item 通过$\varepsilon_0 \chi \vec{E} = \varepsilon_0(\varepsilon_r - 1) \vec{E} = \vec{P}$求出$\vec{P}$
+	\item 通过$\rho = -\nabla \cdot \vec{P}$或者$\sigma = (\vec{P_2}-\vec{P_1})\cdot \vec{e_{n}}$求出极化电荷分布
+	\item 通过$\vec{E} = \frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}\vec{e_r}$求出极化电场，也能通过$\vec{E} = \vec{E_f} + \vec{E_p}$求出自由电荷激发的电场。
+\end{itemize}
+\begin{example}
+	(真空中)厚度为$d$、相对介电常数为$\varepsilon_r$的无限大均匀电介质平板内以体密度$\rho_f$均匀分布自由电荷,
+	求电介质板内的$\vec{E},\vec{D},\vec{P}$。
+\end{example}
+
+\begin{wrapfigure}[10]{r}{0.3\textwidth}
+	\includegraphics[width=0.3\textwidth]{image/电介质高斯定理例题.png}
+\end{wrapfigure}
+如图所示在平板内部建立高斯面，由高斯定理可以得到：
+$$
+2 D S = 2 x S \rho_f
+$$
+即
+$$
+\vec{D} = \rho_f x \vec{e_n}
+$$
+$\vec{e_n}$的方向是背离介质平板的方向。\\
+因为$\vec{D} = \varepsilon_0 \varepsilon_r \vec{E}$，所以：
+$$
+\vec{E} = \frac{x \rho_f}{\varepsilon_0 \varepsilon_r}\vec{e_n}
+$$
+又因为$\vec{P} = \varepsilon_0(\varepsilon_r - 1) \vec{E}$所以：
+$$\vec{P} = \frac{\varepsilon_r - 1}{\varepsilon_r} \rho_f x \vec{e_n}$$
 \end{document}
 
